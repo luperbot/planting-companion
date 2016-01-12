@@ -1,8 +1,8 @@
 """Explaination of the garden object."""
 import json
+from plantingcompanion import exceptions
 
-
-PLANT_FILE_JSON = 'plants.json'
+PLANT_FILE_JSON = 'plantingcompanion/plants.json'
 
 def get_plant_data():
     """
@@ -26,24 +26,6 @@ def get_plant_data():
     return plant_values
 
 PLANT_VALUES = get_plant_data()
-
-class TooManyPlants(Exception):
-    pass
-
-
-class PlantDoesNotExist(Exception):
-    pass
-
-
-class PlotNotSet(Exception):
-    pass
-
-
-class NotValidCoordinate(Exception):
-    pass
-
-class InvalidPlot(Exception):
-    pass
 
 
 class Plots(object):
@@ -74,7 +56,7 @@ class Plots(object):
 
         # Check to make sure all the rows are the same length.
         if not all(len(self.plot[0]) == len(row) for row in self.plot):
-            raise InvalidPlot("Plot rows must be the same size.")
+            raise exceptions.InvalidPlot("Plot rows must be the same size.")
         self.rows = len(self.plot)
         self.columns = len(self.plot[0])
 
@@ -92,11 +74,11 @@ class Plots(object):
 
     def check_coordinates(self, x, y):
         if x < 0 or y < 0:
-            raise NotValidCoordinate("Coordinates must be positive integers.")
+            raise exceptions.InvalidCoordinates("Coordinates must be positive integers.")
         if x >= self.rows:
-            raise NotValidCoordinate("X-axis exceeds plot width.")
+            raise exceptions.InvalidCoordinates("X-axis exceeds plot width.")
         if y >= self.columns:
-            raise NotValidCoordinate("Y-axis exceeds plot length.")
+            raise exceptions.InvalidCoordinates("Y-axis exceeds plot length.")
 
     def _get_neighbors(self, x, y):
         top_row = max(x-1, 0)
@@ -156,7 +138,7 @@ class Garden(object):
         plant = plant_string.lower()
         plant_value = self.PlantValues.get(plant)
         if plant_value == None:
-            raise PlantDoesNotExist(
+            raise exceptions.PlantDoesNotExist(
                 "No information about plant '%s' exists." % plant
                 )
         return plant
@@ -183,7 +165,7 @@ class Garden(object):
         plant = self.clean_plant(plant)
 
         if self.plants_num + amount > self.plot_size:
-            raise TooManyPlants(
+            raise exceptions.TooManyPlants(
                 "Cannot add %s plants, exceeds plot size limit." % amount
                 )
 

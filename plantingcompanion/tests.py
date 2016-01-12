@@ -1,5 +1,6 @@
 import unittest
-import garden
+from plantingcompanion import garden
+from plantingcompanion import exceptions
 
 class TestGarden(unittest.TestCase):
 
@@ -26,12 +27,12 @@ class TestGarden(unittest.TestCase):
         self.assertEqual(self.garden.plants_num, 30)
 
     def test_plant_does_not_exist(self):
-        self.assertRaises(garden.PlantDoesNotExist, self.garden.add, 'kitty-cat')
+        self.assertRaises(exceptions.PlantDoesNotExist, self.garden.add, 'kitty-cat')
 
     def test_too_many_plants(self):
         for i in range(30):
             self.garden.add('leeks')
-        self.assertRaises(garden.TooManyPlants, self.garden.add, 'leeks')
+        self.assertRaises(exceptions.TooManyPlants, self.garden.add, 'leeks')
 
 
 class TestPlots(unittest.TestCase):
@@ -51,9 +52,9 @@ class TestPlots(unittest.TestCase):
         self.assertEqual(self.plot.columns, 4)
 
     def test_coordinate_validity(self):
-        self.assertRaises(garden.NotValidCoordinate, self.plot.get_plant, 8, 4)
-        self.assertRaises(garden.NotValidCoordinate, self.plot.get_plant, 3, -4)
-        self.assertRaises(garden.NotValidCoordinate, self.plot.get_plant, 3, 10)
+        self.assertRaises(exceptions.InvalidCoordinates, self.plot.get_plant, 8, 4)
+        self.assertRaises(exceptions.InvalidCoordinates, self.plot.get_plant, 3, -4)
+        self.assertRaises(exceptions.InvalidCoordinates, self.plot.get_plant, 3, 10)
 
     def test_get_plot(self):
         self.assertEqual(self.plot.get_plant(3, 3), 'garlic')
