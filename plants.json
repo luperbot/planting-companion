@@ -1,0 +1,1038 @@
+{
+    "dill": {
+        "foes": [], 
+        "friends": [
+            "beets", 
+            "broccoli", 
+            "brussell sprouts", 
+            "cabbages", 
+            "carrots", 
+            "cauliflower", 
+            "celery", 
+            "chervil", 
+            "coriander", 
+            "dill", 
+            "cucumber", 
+            "fennel", 
+            "tomato"
+        ]
+    }, 
+    "thyme": {
+        "foes": [], 
+        "friends": [
+            "cabbages", 
+            "roses"
+        ]
+    }, 
+    "marjoram": {
+        "foes": [], 
+        "friends": [
+            "asparagus", 
+            "beans", 
+            "broad beans", 
+            "bush beans", 
+            "climbing beans", 
+            "beets", 
+            "broccoli", 
+            "brussell sprouts", 
+            "cabbage", 
+            "carrots", 
+            "cauliflower", 
+            "celery", 
+            "chervil", 
+            "coriander", 
+            "dill", 
+            "cucumber", 
+            "lettuce", 
+            "onions", 
+            "peas", 
+            "potatoes", 
+            "pumpkin", 
+            "radish", 
+            "strawberry", 
+            "spinach", 
+            "squash", 
+            "tomato", 
+            "zucchini"
+        ]
+    }, 
+    "apple": {
+        "foes": [
+            "grass", 
+            "potatoes"
+        ], 
+        "friends": [
+            "chives", 
+            "marigold", 
+            "garlic", 
+            "horseradish", 
+            "lemon balm", 
+            "mustard", 
+            "nasturtiums", 
+            "spinach", 
+            "tansy", 
+            "yarrow"
+        ]
+    }, 
+    "radish": {
+        "foes": [], 
+        "friends": [
+            "climbing beans", 
+            "carrots", 
+            "chervil", 
+            "corn", 
+            "cucumber", 
+            "lettuce", 
+            "marjoram", 
+            "nasturtium"
+        ]
+    }, 
+    "chervil": {
+        "foes": [], 
+        "friends": [
+            "coriander", 
+            "dill", 
+            "garlic", 
+            "lettuce", 
+            "parsley", 
+            "radish", 
+            "yarrow"
+        ]
+    }, 
+    "carrots": {
+        "foes": [], 
+        "friends": [
+            "beans", 
+            "chives", 
+            "coriander", 
+            "dill", 
+            "corn", 
+            "cucumber", 
+            "marigold", 
+            "lettuce", 
+            "marjoram", 
+            "onions", 
+            "peas", 
+            "radish", 
+            "rosemary", 
+            "sage", 
+            "tomato"
+        ]
+    }, 
+    "garlic": {
+        "foes": [
+            "beans", 
+            "broad beans", 
+            "bush beans", 
+            "climbing beans", 
+            "cabbages", 
+            "peas", 
+            "strawberry"
+        ], 
+        "friends": [
+            "apple", 
+            "apricot", 
+            "cherry", 
+            "fruit trees", 
+            "mulberry", 
+            "rosemary", 
+            "roses"
+        ]
+    }, 
+    "lavender": {
+        "foes": [
+            "fennel"
+        ], 
+        "friends": [
+            "cabbage", 
+            "garlic", 
+            "marjoram", 
+            "roses", 
+            "silverbeet", 
+            "stinging nettle"
+        ]
+    }, 
+    "lettuce": {
+        "foes": [
+            "parsley"
+        ], 
+        "friends": [
+            "beans", 
+            "broad beans", 
+            "climbing beans", 
+            "beets", 
+            "cabbage", 
+            "carrots", 
+            "cherry", 
+            "chervil", 
+            "cucumber", 
+            "marigold", 
+            "marjoram", 
+            "onions", 
+            "peas", 
+            "radish", 
+            "strawberry"
+        ]
+    }, 
+    "fennel": {
+        "foes": [
+            "beans", 
+            "broad beans", 
+            "coriander", 
+            "lavender", 
+            "tomato"
+        ], 
+        "friends": [
+            "basil", 
+            "dill"
+        ]
+    }, 
+    "tansy": {
+        "foes": [], 
+        "friends": [
+            "apple", 
+            "asparagus", 
+            "borage", 
+            "cabbages", 
+            "cherry", 
+            "cucumber", 
+            "fruit trees", 
+            "grape vine", 
+            "mulberry", 
+            "roses", 
+            "squash", 
+            "yarrow"
+        ]
+    }, 
+    "pennyroyal": {
+        "foes": [], 
+        "friends": [
+            "cabbages"
+        ]
+    }, 
+    "yarrow": {
+        "foes": [], 
+        "friends": [
+            "apple", 
+            "apricot", 
+            "cherry", 
+            "fruit trees", 
+            "grape vine", 
+            "mulberry"
+        ]
+    }, 
+    "grape vine": {
+        "foes": [], 
+        "friends": [
+            "mulberry", 
+            "tomato", 
+            "yarrow"
+        ]
+    }, 
+    "onions": {
+        "foes": [
+            "beans", 
+            "broad beans", 
+            "bush beans", 
+            "climbing beans", 
+            "peas"
+        ], 
+        "friends": [
+            "beets", 
+            "cabbages", 
+            "carrots", 
+            "lettuce", 
+            "marjoram", 
+            "parsley", 
+            "roses", 
+            "savory", 
+            "silverbeet", 
+            "strawberry", 
+            "tomato"
+        ]
+    }, 
+    "leeks": {
+        "foes": [], 
+        "friends": [
+            "carrots", 
+            "celery", 
+            "marjoram", 
+            "onions"
+        ]
+    }, 
+    "mustard": {
+        "foes": [], 
+        "friends": [
+            "apple", 
+            "apricot", 
+            "cherry", 
+            "fruit trees", 
+            "grape vine", 
+            "nasturtium"
+        ]
+    }, 
+    "nasturtiums": {
+        "foes": [], 
+        "friends": [
+            "apple", 
+            "apricot", 
+            "broccoli", 
+            "cabbages", 
+            "cherry", 
+            "cucumber", 
+            "fruit trees", 
+            "mulberry", 
+            "potatoes", 
+            "radish", 
+            "roses", 
+            "squash", 
+            "tomato", 
+            "zucchini"
+        ]
+    }, 
+    "chamomile": {
+        "foes": [
+            "mints"
+        ], 
+        "friends": [
+            "cabbages"
+        ]
+    }, 
+    "sunflower": {
+        "foes": [
+            "climbing beans", 
+            "garlic", 
+            "potatoes"
+        ], 
+        "friends": [
+            "apricot", 
+            "bush beans", 
+            "brussell sprouts", 
+            "cucumber", 
+            "squash"
+        ]
+    }, 
+    "spinach": {
+        "foes": [], 
+        "friends": [
+            "apple", 
+            "apricot", 
+            "broad beans", 
+            "cherry", 
+            "fruit trees", 
+            "marjoram", 
+            "mulberry", 
+            "strawberry"
+        ]
+    }, 
+    "cherry": {
+        "foes": [
+            "potatoes"
+        ], 
+        "friends": [
+            "chives", 
+            "marigold", 
+            "lettuce", 
+            "nasturtium", 
+            "silverbeet", 
+            "spinach"
+        ]
+    }, 
+    "cabbages": {
+        "foes": [
+            "garlic", 
+            "rue", 
+            "strawberry", 
+            "tomato"
+        ], 
+        "friends": [
+            "beans", 
+            "broad beans", 
+            "climbing beans", 
+            "beets", 
+            "borage", 
+            "chamomile", 
+            "celery", 
+            "coriander", 
+            "dill", 
+            "cucumber", 
+            "marigold", 
+            "lettuce", 
+            "marjoram", 
+            "nasturtium", 
+            "onions", 
+            "peas", 
+            "pennyroyal", 
+            "potatoes", 
+            "rosemary", 
+            "sage"
+        ]
+    }, 
+    "parsley": {
+        "foes": [
+            "lettuce"
+        ], 
+        "friends": [
+            "asparagus", 
+            "beans", 
+            "chives", 
+            "onions", 
+            "rosemary", 
+            "roses", 
+            "tomato"
+        ]
+    }, 
+    "parsnip": {
+        "foes": [
+            "carrots", 
+            "celery"
+        ], 
+        "friends": [
+            "beans", 
+            "chives", 
+            "coriander", 
+            "dill", 
+            "corn", 
+            "lettuce", 
+            "marjoram", 
+            "onions", 
+            "peas", 
+            "potatoes", 
+            "radish", 
+            "sage", 
+            "tomato"
+        ]
+    }, 
+    "celery": {
+        "foes": [
+            "potatoes"
+        ], 
+        "friends": [
+            "bush beans", 
+            "cabbages", 
+            "cauliflower", 
+            "marjoram", 
+            "peas", 
+            "tomato"
+        ]
+    }, 
+    "roses": {
+        "foes": [], 
+        "friends": [
+            "chives", 
+            "marigold", 
+            "garlic", 
+            "nasturtium", 
+            "onions", 
+            "parsley", 
+            "rue", 
+            "sage"
+        ]
+    }, 
+    "horseradish": {
+        "foes": [], 
+        "friends": [
+            "apple", 
+            "apricot", 
+            "cherry", 
+            "potatoes", 
+            "roses", 
+            "sunflower"
+        ]
+    }, 
+    "basil": {
+        "foes": [
+            "rue", 
+            "silverbeet"
+        ], 
+        "friends": [
+            "apricot", 
+            "asparagus", 
+            "chives", 
+            "cucumber", 
+            "fennel", 
+            "tomato"
+        ]
+    }, 
+    "marigold": {
+        "foes": [], 
+        "friends": [
+            "apple", 
+            "apricot", 
+            "beans", 
+            "broccoli", 
+            "brussell sprouts", 
+            "cabbages", 
+            "cauliflower", 
+            "cherry", 
+            "fruit trees", 
+            "lettuce", 
+            "mulberry", 
+            "roses", 
+            "strawberry", 
+            "sunflower"
+        ]
+    }, 
+    "stinging nettle": {
+        "foes": [], 
+        "friends": [
+            "apricot", 
+            "fruit trees", 
+            "horseradish", 
+            "tomato"
+        ]
+    }, 
+    "mints": {
+        "foes": [
+            "carrots", 
+            "parsley"
+        ], 
+        "friends": [
+            "cabbages", 
+            "tomato"
+        ]
+    }, 
+    "pumpkin": {
+        "foes": [
+            "potatoes"
+        ], 
+        "friends": [
+            "corn", 
+            "marjoram"
+        ]
+    }, 
+    "tomato": {
+        "foes": [
+            "apricot", 
+            "beets", 
+            "fennel", 
+            "potatoes", 
+            "rosemary"
+        ], 
+        "friends": [
+            "asparagus", 
+            "basil", 
+            "borage", 
+            "broccoli", 
+            "carrots", 
+            "cauliflower", 
+            "celery", 
+            "chives", 
+            "marigold", 
+            "grape vine", 
+            "marjoram", 
+            "nasturtium", 
+            "onions", 
+            "parsley", 
+            "stinging nettle"
+        ]
+    }, 
+    "chives": {
+        "foes": [
+            "beans", 
+            "broad beans", 
+            "bush beans", 
+            "climbing beans", 
+            "peas"
+        ], 
+        "friends": [
+            "apple", 
+            "asparagus", 
+            "carrots", 
+            "cherry", 
+            "fruit trees", 
+            "marjoram", 
+            "mulberry", 
+            "roses", 
+            "strawberry", 
+            "tomato"
+        ]
+    }, 
+    "lemon balm": {
+        "foes": [], 
+        "friends": [
+            "apple", 
+            "apricot", 
+            "cherry", 
+            "fruit tree", 
+            "mulberry", 
+            "roses"
+        ]
+    }, 
+    "silverbeet": {
+        "foes": [
+            "basil"
+        ], 
+        "friends": [
+            "beets", 
+            "cherry", 
+            "fruit trees", 
+            "marjoram", 
+            "mulberry", 
+            "onions"
+        ]
+    }, 
+    "eggplant": {
+        "foes": [], 
+        "friends": [
+            "beans", 
+            "marjoram", 
+            "potatoes"
+        ]
+    }, 
+    "cauliflower": {
+        "foes": [
+            "rue", 
+            "strawberry"
+        ], 
+        "friends": [
+            "beans", 
+            "broad beans", 
+            "bush beans", 
+            "climbing beans", 
+            "beets", 
+            "borage", 
+            "celery", 
+            "coriander", 
+            "cucumber", 
+            "dill", 
+            "marjoram", 
+            "potato", 
+            "tomato"
+        ]
+    }, 
+    "sage": {
+        "foes": [
+            "cucumber", 
+            "rue"
+        ], 
+        "friends": [
+            "beans", 
+            "cabbages", 
+            "peas", 
+            "rosemary", 
+            "roses", 
+            "strawberry"
+        ]
+    }, 
+    "corn": {
+        "foes": [], 
+        "friends": [
+            "beans", 
+            "broad beans", 
+            "bush beans", 
+            "climbing beans", 
+            "cucumber", 
+            "marjoram", 
+            "peas", 
+            "potatoes", 
+            "pumpkin", 
+            "radish", 
+            "squash", 
+            "zucchini"
+        ]
+    }, 
+    "peas": {
+        "foes": [
+            "chives", 
+            "garlic", 
+            "onions", 
+            "shallots"
+        ], 
+        "friends": [
+            "beans", 
+            "borage", 
+            "cabbages", 
+            "carrots", 
+            "celery", 
+            "corn", 
+            "cucumber", 
+            "lettuce", 
+            "marjoram", 
+            "parsnip", 
+            "potato", 
+            "raspberry", 
+            "sage"
+        ]
+    }, 
+    "rue": {
+        "foes": [
+            "basil", 
+            "broccoli", 
+            "cabbages", 
+            "cauliflower", 
+            "sage"
+        ], 
+        "friends": [
+            "carrots", 
+            "roses"
+        ]
+    }, 
+    "savory": {
+        "foes": [], 
+        "friends": [
+            "beans", 
+            "onions"
+        ]
+    }, 
+    "brussell sprouts": {
+        "foes": [], 
+        "friends": [
+            "beans", 
+            "broad beans", 
+            "bush beans", 
+            "climbing beans", 
+            "beets", 
+            "borage", 
+            "coriander", 
+            "cucumber", 
+            "dill", 
+            "marigold", 
+            "marjoram", 
+            "potato", 
+            "strawberry", 
+            "sunflower"
+        ]
+    }, 
+    "cucumber": {
+        "foes": [
+            "potatoes", 
+            "sage"
+        ], 
+        "friends": [
+            "basil", 
+            "beans", 
+            "bush beans", 
+            "borage", 
+            "broccoli", 
+            "brussell sprouts", 
+            "cabbages", 
+            "carrots", 
+            "cauliflower", 
+            "corn", 
+            "lettuce", 
+            "marjoram", 
+            "nasturtium", 
+            "peas", 
+            "radish", 
+            "sunflower"
+        ]
+    }, 
+    "shallots": {
+        "foes": [
+            "beans", 
+            "peas"
+        ], 
+        "friends": [
+            "marjoram"
+        ]
+    }, 
+    "borage": {
+        "foes": [], 
+        "friends": [
+            "broccoli", 
+            "brussell sprouts", 
+            "cabbages", 
+            "cauliflower", 
+            "cucumber", 
+            "peas", 
+            "squash", 
+            "strawberry", 
+            "tomato"
+        ]
+    }, 
+    "raspberry": {
+        "foes": [
+            "potatoes"
+        ], 
+        "friends": [
+            "marigold", 
+            "peas", 
+            "rue"
+        ]
+    }, 
+    "broccoli": {
+        "foes": [
+            "rue", 
+            "strawberry"
+        ], 
+        "friends": [
+            "beans", 
+            "broad beans", 
+            "bush beans", 
+            "climbing beans", 
+            "beets", 
+            "borage", 
+            "coriander", 
+            "cucumber", 
+            "dill", 
+            "marigold", 
+            "marjoram", 
+            "nasturtiums", 
+            "potato", 
+            "tomato"
+        ]
+    }, 
+    "coriander": {
+        "foes": [
+            "fennel"
+        ], 
+        "friends": [
+            "brocolli", 
+            "brussell sprouts", 
+            "cabbages", 
+            "chamomile", 
+            "chervil"
+        ]
+    }, 
+    "fruit trees": {
+        "foes": [], 
+        "friends": [
+            "carrots", 
+            "chives", 
+            "marigold", 
+            "garlic", 
+            "nasturtium", 
+            "silverbeet", 
+            "spinach", 
+            "stinging nettle", 
+            "yarrow"
+        ]
+    }, 
+    "beets": {
+        "foes": [
+            "climbing beans", 
+            "tomato"
+        ], 
+        "friends": [
+            "bush beans", 
+            "broccoli", 
+            "brussell sprouts", 
+            "cabbage", 
+            "cauliflower", 
+            "lettuce", 
+            "marjoram", 
+            "onions", 
+            "potatoes", 
+            "silverbeet"
+        ]
+    }, 
+    "broad beans": {
+        "foes": [
+            "chives", 
+            "fennel", 
+            "garlic", 
+            "onions"
+        ], 
+        "friends": [
+            "broccoli", 
+            "brussell sprouts", 
+            "cabbages", 
+            "cauliflower", 
+            "corn", 
+            "lettuce", 
+            "marjoram", 
+            "potatoes", 
+            "spinach"
+        ]
+    }, 
+    "potatoes": {
+        "foes": [
+            "apple", 
+            "celery", 
+            "cherry", 
+            "cucumber"
+        ], 
+        "friends": [
+            "beans", 
+            "broad beans", 
+            "bush beans", 
+            "beets", 
+            "broccoli", 
+            "brussell sprouts", 
+            "cabbages", 
+            "cauliflower", 
+            "corn", 
+            "marigold", 
+            "marjoram", 
+            "nasturtium", 
+            "peas"
+        ]
+    }, 
+    "asparagus": {
+        "foes": [], 
+        "friends": [
+            "basil", 
+            "marjoram", 
+            "parsley", 
+            "tomato"
+        ]
+    }, 
+    "apricot": {
+        "foes": [
+            "tomato"
+        ], 
+        "friends": [
+            "basil", 
+            "marigold", 
+            "garlic", 
+            "nasturtium", 
+            "spinach", 
+            "stinging nettle", 
+            "sunflower", 
+            "yarrow"
+        ]
+    }, 
+    "squash": {
+        "foes": [], 
+        "friends": [
+            "borage", 
+            "corn", 
+            "marjoram", 
+            "nasturtiums", 
+            "sunflower", 
+            "tansy"
+        ]
+    }, 
+    "mulberry": {
+        "foes": [], 
+        "friends": [
+            "chives", 
+            "marigold", 
+            "garlic", 
+            "grape vine", 
+            "grass", 
+            "lemon balm", 
+            "mustard", 
+            "nasturtiums", 
+            "silverbeet", 
+            "spinach", 
+            "tansy", 
+            "yarrow"
+        ]
+    }, 
+    "zucchini": {
+        "foes": [], 
+        "friends": [
+            "corn", 
+            "marjoram", 
+            "nasturium"
+        ]
+    }, 
+    "strawberry": {
+        "foes": [
+            "broccoli", 
+            "cabbages", 
+            "cauliflower"
+        ], 
+        "friends": [
+            "bush beans", 
+            "borage", 
+            "brussell sprouts", 
+            "chives", 
+            "marigold", 
+            "lettuce", 
+            "onions", 
+            "sage", 
+            "spinach"
+        ]
+    }, 
+    "beans": {
+        "foes": [
+            "chives", 
+            "fennel", 
+            "garlic", 
+            "onions"
+        ], 
+        "friends": [
+            "broccoli", 
+            "brussell sprouts", 
+            "cabbages", 
+            "carrots", 
+            "cauliflower", 
+            "corn", 
+            "cucumber", 
+            "marigold", 
+            "grape vine", 
+            "lettuce", 
+            "marjoram", 
+            "parsley", 
+            "peas", 
+            "potatoes", 
+            "rosemary", 
+            "sage", 
+            "savory"
+        ]
+    }, 
+    "climbing beans": {
+        "foes": [
+            "beets", 
+            "chives", 
+            "garlic", 
+            "onions", 
+            "sunflower"
+        ], 
+        "friends": [
+            "broccoli", 
+            "brussell sprouts", 
+            "cabbages", 
+            "cauliflower", 
+            "corn", 
+            "lettuce", 
+            "marjoram", 
+            "radish"
+        ]
+    }, 
+    "gooseberry": {
+        "foes": [], 
+        "friends": [
+            "tomato"
+        ]
+    }, 
+    "bush beans": {
+        "foes": [
+            "chives", 
+            "garlic", 
+            "onions"
+        ], 
+        "friends": [
+            "beets", 
+            "broccoli", 
+            "brussell sprouts", 
+            "cabbages", 
+            "cauliflower", 
+            "celery", 
+            "corn", 
+            "cucumber", 
+            "marjoram", 
+            "potatoes", 
+            "strawberry", 
+            "sunflower"
+        ]
+    }, 
+    "grass": {
+        "foes": [
+            "apple", 
+            "apricot", 
+            "cherry", 
+            "fruit trees", 
+            "sage"
+        ], 
+        "friends": [
+            "mulberry", 
+            "yarrow"
+        ]
+    }, 
+    "rosemary": {
+        "foes": [
+            "potatoes", 
+            "tomato"
+        ], 
+        "friends": [
+            "beans", 
+            "cabbages", 
+            "garlic", 
+            "sage"
+        ]
+    }
+}
