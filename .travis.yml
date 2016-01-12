@@ -11,4 +11,6 @@ install:
     - pip install -r requirements.txt
 
 # command to run tests
-script: python -m unittest plantingcompanion.tests
+script:
+    - python -m unittest plantingcompanion.tests
+    - flake8 plantingcompanion

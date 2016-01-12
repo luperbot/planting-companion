@@ -2,6 +2,7 @@
 Exception classes.
 """
 
+
 class TooManyPlants(Exception):
     pass
 
@@ -20,4 +21,3 @@ class InvalidCoordinates(Exception):
 
 class InvalidPlot(Exception):
     pass
-

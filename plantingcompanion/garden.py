@@ -4,12 +4,13 @@ from plantingcompanion import exceptions
 
 PLANT_FILE_JSON = 'plantingcompanion/plants.json'
 
+
 def get_plant_data():
     """
     Load JSON data from plants.
     Map plant values to each key.
-    Friendly plants get +10 points, harmful plants get -10 points, and similar plants
-    get -5 points.
+    Friendly plants get +10 points, harmful plants get -10 points,
+    and similar plants get -5 points.
     """
     with open(PLANT_FILE_JSON, 'r') as plantfile:
         plants = json.load(plantfile)
@@ -18,10 +19,10 @@ def get_plant_data():
     for plant, values in plants.items():
         plant_values[plant] = {plant: -5}
         plant_values[plant].update(
-            {friend:10 for friend in values['friends']}
+            {friend: 10 for friend in values['friends']}
         )
         plant_values[plant].update(
-            {foe:-10 for foe in values['foes']}
+            {foe: -10 for foe in values['foes']}
         )
     return plant_values
 
@@ -47,7 +48,8 @@ class Plots(object):
 
     def update_plot_dimensions(self):
         """
-        Check that the plot is valid dimensions, and update the row and column count.
+        Check that the plot is valid dimensions,
+        and update the row and column count.
         """
         if not self.plot:
             self.rows = 0
@@ -74,7 +76,9 @@ class Plots(object):
 
     def check_coordinates(self, x, y):
         if x < 0 or y < 0:
-            raise exceptions.InvalidCoordinates("Coordinates must be positive integers.")
+            raise exceptions.InvalidCoordinates(
+                "Coordinates must be positive integers."
+                )
         if x >= self.rows:
             raise exceptions.InvalidCoordinates("X-axis exceeds plot width.")
         if y >= self.columns:
@@ -119,7 +123,8 @@ class Garden(object):
     def __init__(self, length=1, width=1):
         """
         Set intial values for the garden.
-        Total plot size is length * width, which limits the amount of plants choosen.
+        Total plot size is length * width,
+        which limits the amount of plants choosen.
         """
         self.length = length
         self.width = width
@@ -128,16 +133,14 @@ class Garden(object):
         self.plants_num = 0
         self.plot = Plots()
 
-    def score_plot():
-        score = 0
-
-
+    def score_plot(self):
+        return self.plot.get_total_score()
 
     def clean_plant(self, plant_string):
         """Normalizes plant name and checks if plant values exist."""
         plant = plant_string.lower()
         plant_value = self.PlantValues.get(plant)
-        if plant_value == None:
+        if plant_value is None:
             raise exceptions.PlantDoesNotExist(
                 "No information about plant '%s' exists." % plant
                 )
@@ -173,4 +176,3 @@ class Garden(object):
         self.plants[plant] = current_amount + amount
         self.plants_num += amount
         return
-
