@@ -1,7 +1,7 @@
 planting-companion
 ======================================
 
-|build-status-image| |pypi-version|
+|build-status-image|
 
 Overview
 --------
@@ -42,5 +42,3 @@ Run with unittest.
 
 .. |build-status-image| image:: https://secure.travis-ci.org/luperbot/planting-companion.svg?branch=master
    :target: http://travis-ci.org/luperbot/planting-companion?branch=master
-.. |pypi-version| image:: https://img.shields.io/pypi/v/planting-companion.svg
-   :target: https://pypi.python.org/pypi/planting-companion
