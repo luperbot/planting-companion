@@ -34,7 +34,7 @@ Install testing requirements.
 
     $ pip install -r requirements.txt
 
-Run with runtests.
+Run with unittest.
 
 .. code:: bash
 
