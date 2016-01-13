@@ -149,4 +149,4 @@ class TestLayouts(unittest.TestCase):
             ('yarrow', 2), ('apple', 2), ('grass', 2)
             ])
         layout = garden_plot.find_layout()
-        print layout
+        print(layout)
