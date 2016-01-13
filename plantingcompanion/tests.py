@@ -142,3 +142,11 @@ class TestLayouts(unittest.TestCase):
         garden_plot.add([('corn', 8)])
         layout = garden_plot.find_layout()
         self.assertEqual(ideal_layout, layout)
+
+    def test_six_threepairs(self):
+        garden_plot = garden.Garden(2, 3)
+        garden_plot.add([
+            ('yarrow', 2), ('apple', 2), ('grass', 2)
+            ])
+        layout = garden_plot.find_layout()
+        print layout

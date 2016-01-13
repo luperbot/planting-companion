@@ -1,6 +1,9 @@
 """Explaination of the garden object."""
 import json
+import itertools
+
 from numpy import matrix
+
 from plantingcompanion import exceptions
 
 PLANT_FILE_JSON = 'plantingcompanion/plants.json'
@@ -137,22 +140,23 @@ class Garden(object):
     def score_plot(self):
         return self.plot.get_total_score()
 
-    def best_neighbors(self, plants_list, groups=None, x=1, y=2):
-        if groups is None:
-            groups = []
-
-        if len(plants_list) == 1:
-            plant = list(plants_list.keys())[0]
-            return matrix([plant] * (x*y)).reshape(x, y).tolist()
-
-        # Based on plot_size, determine how many pairs are needed.
-        num_of_pairs = self.plot_size / (x*y)
-        # TODO: Create all the pairing types possible.
-        # TODO: Return the best ones.
-        return [num_of_pairs]
-
     def find_layout(self):
-        return self.best_neighbors(self.plants, x=self.length, y=self.width)
+        plots = Plots()
+
+        plants = []
+        for k, v in self.plants.items():
+            plants.extend([k]*v)
+
+        plot_scores = []
+        for p in itertools.permutations(plants):
+            plots.set_plots(
+                matrix(p).reshape(self.length, self.width).tolist()
+                )
+            score = plots.get_total_score()
+            plot_scores.append((score, p))
+
+        best_plot = max(plot_scores)[1]
+        return matrix(best_plot).reshape(self.length, self.width).tolist()
 
     def clean_plant(self, plant_string):
         """Normalizes plant name and checks if plant values exist."""
