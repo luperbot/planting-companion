@@ -142,7 +142,7 @@ class Garden(object):
             groups = []
 
         if len(plants_list) == 1:
-            plant = plants_list.keys()[0]
+            plant = list(plants_list.keys())[0]
             return matrix([plant] * (x*y)).reshape(x, y).tolist()
 
         # Based on plot_size, determine how many pairs are needed.
