@@ -11,10 +11,6 @@ class PlantDoesNotExist(Exception):
     pass
 
 
-class PlotNotSet(Exception):
-    pass
-
-
 class InvalidCoordinates(Exception):
     pass
 

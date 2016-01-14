@@ -50,21 +50,25 @@ class Plots(object):
         self.plot = plot
         self.set_plots(plot)
 
-    def update_plot_dimensions(self):
+    def update_plot_dimensions(self, plot):
         """
         Check that the plot is valid dimensions,
         and update the row and column count.
         """
-        if not self.plot:
+        if not plot:
             self.rows = 0
             self.columns = 0
             return
 
         # Check to make sure all the rows are the same length.
-        if not all(len(self.plot[0]) == len(row) for row in self.plot):
+        if not all(len(plot[0]) == len(row) for row in plot):
             raise exceptions.InvalidPlot("Plot rows must be the same size.")
-        self.rows = len(self.plot)
-        self.columns = len(self.plot[0])
+
+        if len(plot) < len(plot[0]):
+            raise exceptions.InvalidPlot("Width of plot cannot be larger than length.")
+
+        self.rows = len(plot)
+        self.columns = len(plot[0])
 
     def set_plots(self, plot):
         """
@@ -75,8 +79,8 @@ class Plots(object):
             ['pear', 'pear']
             ]
         """
+        self.update_plot_dimensions(plot)
         self.plot = plot
-        self.update_plot_dimensions()
 
     def check_coordinates(self, x, y):
         if x < 0 or y < 0:
@@ -130,6 +134,9 @@ class Garden(object):
         Total plot size is length * width,
         which limits the amount of plants choosen.
         """
+        if width > length:
+            raise exceptions.InvalidPlot("Width of plot cannot be larger than length.")
+
         self.length = length
         self.width = width
         self.plot_size = length * width

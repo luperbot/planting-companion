@@ -6,8 +6,8 @@ from plantingcompanion import exceptions
 class TestGarden(unittest.TestCase):
 
     def setUp(self):
-        self.length = 5
-        self.width = 6
+        self.length = 6
+        self.width = 5
         self.garden = garden.Garden(self.length, self.width)
 
     def test_plot_size(self):
@@ -74,6 +74,14 @@ class TestPlots(unittest.TestCase):
     def test_get_total_score(self):
         self.assertEqual(self.plot.get_total_score(), 20)
 
+    def test_plot_size(self):
+        self.assertRaises(
+            exceptions.InvalidPlot, garden.Garden, 3, 5
+        )
+        self.assertRaises(
+            exceptions.InvalidPlot, garden.Garden, 3, 5
+        )
+
 
 class TestLayouts(unittest.TestCase):
 
@@ -85,13 +93,13 @@ class TestLayouts(unittest.TestCase):
         self.assertEqual(ideal_layout, layout)
 
     def test_two(self):
-        garden_plot = garden.Garden(1, 2)
+        garden_plot = garden.Garden(2, 1)
         garden_plot.add([('corn', 1), ('garlic', 1)])
         layout = garden_plot.find_layout()
         print(layout)
 
     def test_three(self):
-        garden_plot = garden.Garden(1, 3)
+        garden_plot = garden.Garden(3, 1)
         garden_plot.add([('corn', 2), ('garlic', 1)])
         layout = garden_plot.find_layout()
         print(layout)
@@ -110,41 +118,43 @@ class TestLayouts(unittest.TestCase):
         self.assertEqual(ideal_layout, layout)
 
     def test_five(self):
-        garden_plot = garden.Garden(1, 5)
+        garden_plot = garden.Garden(5, 1)
         garden_plot.add([('corn', 2), ('garlic', 3)])
         layout = garden_plot.find_layout()
         print(layout)
 
     def test_six(self):
-        garden_plot = garden.Garden(2, 3)
+        garden_plot = garden.Garden(3, 2)
         garden_plot.add([('corn', 2), ('garlic', 4)])
         layout = garden_plot.find_layout()
         print(layout)
 
     def test_seven(self):
-        garden_plot = garden.Garden(1, 7)
+        garden_plot = garden.Garden(7, 1)
         garden_plot.add([('corn', 2), ('garlic', 1), ('beans', 4)])
         layout = garden_plot.find_layout()
         print(layout)
 
     def test_eight(self):
-        garden_plot = garden.Garden(2, 4)
+        garden_plot = garden.Garden(4, 2)
         garden_plot.add([('corn', 4), ('garlic', 2), ('beans', 2)])
         layout = garden_plot.find_layout()
         print(layout)
 
     def test_eight_same(self):
         ideal_layout = [
-            ['corn', 'corn', 'corn', 'corn'],
-            ['corn', 'corn', 'corn', 'corn']
+            ['corn', 'corn'],
+            ['corn', 'corn'],
+            ['corn', 'corn'],
+            ['corn', 'corn'],
             ]
-        garden_plot = garden.Garden(2, 4)
+        garden_plot = garden.Garden(4, 2)
         garden_plot.add([('corn', 8)])
         layout = garden_plot.find_layout()
         self.assertEqual(ideal_layout, layout)
 
     def test_six_threepairs(self):
-        garden_plot = garden.Garden(2, 3)
+        garden_plot = garden.Garden(3, 2)
         garden_plot.add([
             ('yarrow', 2), ('apple', 2), ('grass', 2)
             ])
