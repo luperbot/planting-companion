@@ -2,7 +2,8 @@
 import json
 import itertools
 
-from numpy import matrix
+from copy import deepcopy
+from numpy import matrix, hstack, vstack
 
 from plantingcompanion import exceptions
 
@@ -65,7 +66,9 @@ class Plots(object):
             raise exceptions.InvalidPlot("Plot rows must be the same size.")
 
         if len(plot) < len(plot[0]):
-            raise exceptions.InvalidPlot("Width of plot cannot be larger than length.")
+            raise exceptions.InvalidPlot(
+                "Width of plot cannot be larger than length."
+            )
 
         self.rows = len(plot)
         self.columns = len(plot[0])
@@ -135,7 +138,9 @@ class Garden(object):
         which limits the amount of plants choosen.
         """
         if width > length:
-            raise exceptions.InvalidPlot("Width of plot cannot be larger than length.")
+            raise exceptions.InvalidPlot(
+                "Width of plot cannot be larger than length."
+            )
 
         self.length = length
         self.width = width
@@ -147,23 +152,81 @@ class Garden(object):
     def score_plot(self):
         return self.plot.get_total_score()
 
-    def find_layout(self):
-        plots = Plots()
+    def estimate_layout(self, plants=None, rows=None, columns=None):
+        if plants is None:
+            plants = deepcopy(self.plants)
+        if rows is None:
+            rows = self.length
+        if columns is None:
+            columns = self.width
+
+        if rows * columns < 5:
+            # Return best combo avaliable.
+            layout = self.find_layout(plants, length=rows, width=columns)
+            for row in layout:
+                for plant in row:
+                    plants[plant] -= 1
+            return layout
+
+        cut = rows / 2
+        # Special case, do hstack instead of vstack.
+        if rows == columns or (rows % 2 == 1 and columns % 2 == 0):
+            # Cut to the side
+            main = self.estimate_layout(plants, rows=rows, columns=columns-cut)
+            side = self.estimate_layout(plants, rows=rows, columns=cut)
+            # Combo and return which is higher
+            combo_one = hstack((side, main)).tolist()
+            self.plot.set_plots(combo_one)
+            combo_one_score = self.plot.get_total_score()
+            combo_two = hstack((main, side)).tolist()
+            self.plot.set_plots(combo_two)
+            combo_two_score = self.plot.get_total_score()
+            compare = [
+                (combo_one_score, combo_one),
+                (combo_two_score, combo_two)
+            ]
+            compare.sort(reverse=True)
+            return compare[0][1]
+
+        # Cut to the buttom
+        main = self.estimate_layout(plants, rows=rows-cut, columns=columns)
+        bottom = self.estimate_layout(plants, rows=cut, columns=columns)
+        # Combo and return which is higher
+        combo_one = vstack((bottom, main)).tolist()
+        self.plot.set_plots(combo_one)
+        combo_one_score = self.plot.get_total_score()
+        combo_two = vstack((main, bottom)).tolist()
+        self.plot.set_plots(combo_two)
+        combo_two_score = self.plot.get_total_score()
+        compare = [
+            (combo_one_score, combo_one),
+            (combo_two_score, combo_two)
+        ]
+        compare.sort(reverse=True)
+        return compare[0][1]
+
+    def find_layout(self, avaliable_plants=None, length=None, width=None):
+        if avaliable_plants is None:
+            avaliable_plants = self.plants
+        if length is None:
+            length = self.length
+        if width is None:
+            width = self.width
 
         plants = []
-        for k, v in self.plants.items():
+        plots = Plots()
+        for k, v in avaliable_plants.items():
             plants.extend([k]*v)
-
         plot_scores = []
-        for p in itertools.permutations(plants):
+        for p in itertools.permutations(plants, length*width):
             plots.set_plots(
-                matrix(p).reshape(self.length, self.width).tolist()
+                matrix(p).reshape(length, width).tolist()
                 )
             score = plots.get_total_score()
             plot_scores.append((score, p))
 
         best_plot = max(plot_scores)[1]
-        return matrix(best_plot).reshape(self.length, self.width).tolist()
+        return matrix(best_plot).reshape(length, width).tolist()
 
     def clean_plant(self, plant_string):
         """Normalizes plant name and checks if plant values exist."""

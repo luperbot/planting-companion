@@ -1,4 +1,5 @@
 import unittest
+
 from plantingcompanion import garden
 from plantingcompanion import exceptions
 
@@ -85,61 +86,84 @@ class TestPlots(unittest.TestCase):
 
 class TestLayouts(unittest.TestCase):
 
+    def compare_layout_with_estimate(self, plants, rows, columns):
+        plot = garden.Plots()
+        garden_plot = garden.Garden(rows, columns)
+        garden_plot.add(plants)
+
+        layout = garden_plot.find_layout()
+        plot.set_plots(layout)
+        score = plot.get_total_score()
+
+        layout_estimate = garden_plot.estimate_layout()
+        plot.set_plots(layout_estimate)
+        score_estimate = plot.get_total_score()
+
+        print("")
+        print("%s x %s" % (rows, columns))
+        print(layout)
+        print(layout_estimate)
+        print("score: %s vs %s" % (score, score_estimate))
+
+        return (layout, layout_estimate)
+
     def test_one(self):
         ideal_layout = [['corn']]
-        garden_plot = garden.Garden(1, 1)
-        garden_plot.add([('corn', 1)])
-        layout = garden_plot.find_layout()
+        plants = [('corn', 1)]
+        layout, layout_estimate = self.compare_layout_with_estimate(
+            plants, 1, 1
+        )
         self.assertEqual(ideal_layout, layout)
 
     def test_two(self):
-        garden_plot = garden.Garden(2, 1)
-        garden_plot.add([('corn', 1), ('garlic', 1)])
-        layout = garden_plot.find_layout()
-        print(layout)
+        plants = [('corn', 1), ('garlic', 1)]
+        layout, layout_estimate = self.compare_layout_with_estimate(
+            plants, 2, 1
+        )
 
     def test_three(self):
-        garden_plot = garden.Garden(3, 1)
-        garden_plot.add([('corn', 2), ('garlic', 1)])
-        layout = garden_plot.find_layout()
-        print(layout)
+        plants = [('corn', 2), ('garlic', 1)]
+        layout, layout_estimate = self.compare_layout_with_estimate(
+            plants, 3, 1
+        )
 
     def test_four(self):
-        garden_plot = garden.Garden(2, 2)
-        garden_plot.add([('corn', 2), ('garlic', 2)])
-        layout = garden_plot.find_layout()
-        print(layout)
+        plants = [('corn', 2), ('garlic', 2)]
+        layout, layout_estimate = self.compare_layout_with_estimate(
+            plants, 2, 2
+        )
 
     def test_four_same(self):
         ideal_layout = [['corn', 'corn'], ['corn', 'corn']]
-        garden_plot = garden.Garden(2, 2)
-        garden_plot.add([('corn', 4)])
-        layout = garden_plot.find_layout()
+        plants = [('corn', 4)]
+        layout, layout_estimate = self.compare_layout_with_estimate(
+            plants, 2, 2
+        )
         self.assertEqual(ideal_layout, layout)
 
     def test_five(self):
-        garden_plot = garden.Garden(5, 1)
-        garden_plot.add([('corn', 2), ('garlic', 3)])
-        layout = garden_plot.find_layout()
-        print(layout)
+        plants = [('corn', 2), ('garlic', 3)]
+        layout, layout_estimate = self.compare_layout_with_estimate(
+            plants, 5, 1
+        )
 
     def test_six(self):
-        garden_plot = garden.Garden(3, 2)
-        garden_plot.add([('corn', 2), ('garlic', 4)])
-        layout = garden_plot.find_layout()
-        print(layout)
+        plants = [('corn', 2), ('garlic', 4)]
+        layout, layout_estimate = self.compare_layout_with_estimate(
+            plants, 3, 2
+        )
 
     def test_seven(self):
-        garden_plot = garden.Garden(7, 1)
-        garden_plot.add([('corn', 2), ('garlic', 1), ('beans', 4)])
-        layout = garden_plot.find_layout()
-        print(layout)
+        plants = [('corn', 2), ('garlic', 1), ('beans', 4)]
+        layout, layout_estimate = self.compare_layout_with_estimate(
+            plants, 7, 1
+        )
 
     def test_eight(self):
-        garden_plot = garden.Garden(4, 2)
-        garden_plot.add([('corn', 4), ('garlic', 2), ('beans', 2)])
-        layout = garden_plot.find_layout()
-        print(layout)
+        plants = [('corn', 4), ('garlic', 2), ('beans', 2)]
+        layout, layout_estimate = self.compare_layout_with_estimate(
+            plants, 4, 2
+        )
 
     def test_eight_same(self):
         ideal_layout = [
@@ -148,15 +172,35 @@ class TestLayouts(unittest.TestCase):
             ['corn', 'corn'],
             ['corn', 'corn'],
             ]
-        garden_plot = garden.Garden(4, 2)
-        garden_plot.add([('corn', 8)])
-        layout = garden_plot.find_layout()
+        plants = [('corn', 8)]
+        layout, layout_estimate = self.compare_layout_with_estimate(
+            plants, 4, 2
+        )
         self.assertEqual(ideal_layout, layout)
 
     def test_six_threepairs(self):
-        garden_plot = garden.Garden(3, 2)
-        garden_plot.add([
-            ('yarrow', 2), ('apple', 2), ('grass', 2)
-            ])
-        layout = garden_plot.find_layout()
-        print(layout)
+        plants = [('yarrow', 2), ('apple', 2), ('grass', 2)]
+        layout, layout_estimate = self.compare_layout_with_estimate(
+            plants, 3, 2
+        )
+
+    def test_ten(self):
+        if True:
+            return
+        plants = [('yarrow', 2), ('apple', 2), ('grass', 2), ('garlic', 4)]
+        # layout, layout_estimate = self.compare_layout_with_estimate(
+        #   plants, 5, 2
+        # )
+
+        plot = garden.Plots()
+        garden_plot = garden.Garden(5, 2)
+        garden_plot.add(plants)
+
+        layout_estimate = garden_plot.estimate_layout()
+        plot.set_plots(layout_estimate)
+        score_estimate = plot.get_total_score()
+
+        print("")
+        print("Ten")
+        print(layout_estimate)
+        print(score_estimate)
