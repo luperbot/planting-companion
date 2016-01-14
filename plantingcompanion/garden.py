@@ -168,7 +168,7 @@ class Garden(object):
                     plants[plant] -= 1
             return layout
 
-        cut = rows / 2
+        cut = int(rows / 2)
         # Special case, do hstack instead of vstack.
         if rows == columns or (rows % 2 == 1 and columns % 2 == 0):
             # Cut to the side
