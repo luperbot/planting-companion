@@ -1,37 +1,10 @@
 """Explaination of the garden object."""
-import json
-import itertools
-
 from copy import deepcopy
 from numpy import matrix, hstack, vstack
 
-from plantingcompanion import exceptions
+from plantingcompanion import exceptions, helpers
 
-PLANT_FILE_JSON = 'plantingcompanion/plants.json'
-
-
-def get_plant_data():
-    """
-    Load JSON data from plants.
-    Map plant values to each key.
-    Friendly plants get +10 points, harmful plants get -10 points,
-    and similar plants get -5 points.
-    """
-    with open(PLANT_FILE_JSON, 'r') as plantfile:
-        plants = json.load(plantfile)
-
-    plant_values = {}
-    for plant, values in plants.items():
-        plant_values[plant] = {plant: -5}
-        plant_values[plant].update(
-            {friend: 10 for friend in values['friends']}
-        )
-        plant_values[plant].update(
-            {foe: -10 for foe in values['foes']}
-        )
-    return plant_values
-
-PLANT_VALUES = get_plant_data()
+PLANT_VALUES = helpers.get_plant_data()
 
 
 class Plots(object):
@@ -218,7 +191,7 @@ class Garden(object):
         for k, v in avaliable_plants.items():
             plants.extend([k]*v)
         plot_scores = []
-        for p in itertools.permutations(plants, length*width):
+        for p in helpers.permutations(plants, length*width):
             plots.set_plots(
                 matrix(p).reshape(length, width).tolist()
                 )

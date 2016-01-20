@@ -1,7 +1,30 @@
 import unittest
 
-from plantingcompanion import garden
-from plantingcompanion import exceptions
+from plantingcompanion import exceptions, helpers, garden
+
+
+class TestHelpers(unittest.TestCase):
+
+    def test_get_plant_data(self):
+        # TODO
+        pass
+
+    def test_permutations(self):
+        """Permutations must return only unique combinations, excluding combinations
+        that are mirrored (example: should not contain 'AB' and 'BA').
+        """
+        permutations_one = [('a', 'b', 'c'), ('a', 'c', 'b'), ('b', 'a', 'c')]
+        permutations_two = [
+            ('a', 'b'), ('a', 'c'), ('a', 'd'), ('b', 'c'), ('b', 'd'),
+            ('c', 'd')
+        ]
+
+        self.assertEqual(
+            permutations_one, list(helpers.permutations(['a', 'b', 'c']))
+        )
+        self.assertEqual(
+            permutations_two, list(helpers.permutations('abcd', 2))
+        )
 
 
 class TestGarden(unittest.TestCase):
