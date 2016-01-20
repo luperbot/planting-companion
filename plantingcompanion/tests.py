@@ -6,8 +6,13 @@ from plantingcompanion import exceptions, helpers, garden
 class TestHelpers(unittest.TestCase):
 
     def test_get_plant_data(self):
-        # TODO
-        pass
+        """Plant data should be loaded from plantingcompanion/plants.json file,
+        and parsed correctly to be used by Garden objects.
+        """
+        plant_data = helpers.get_plant_data()
+
+        # Current there are 68 plants in data.
+        self.assertEqual(len(plant_data), 68)
 
     def test_permutations(self):
         """Permutations must return only unique combinations, excluding combinations
