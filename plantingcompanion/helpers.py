@@ -36,8 +36,8 @@ def permutations(iterable, r=None):
     r = n if r is None else r
     if r > n:
         return
-    indices = range(n)
-    cycles = range(n, n-r, -1)
+    indices = list(range(n))
+    cycles = list(range(n, n-r, -1))
     yield tuple(pool[i] for i in indices[:r])
     mirrors = {tuple(pool[i] for i in indices[:r]): True}
     while n:
