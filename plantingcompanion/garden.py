@@ -125,6 +125,26 @@ class Garden(object):
     def score_plot(self):
         return self.plot.get_total_score()
 
+    def mark_plants_as_used(self, plants, used_plants):
+        for row in used_plants:
+            for plant in row:
+                plants[plant] -= 1
+
+    def combine_plots(self, main, side, horizontal=False):
+        stack = hstack if horizontal else vstack
+
+        combo_one = stack((side, main)).tolist()
+        self.plot.set_plots(combo_one)
+        combo_one_score = self.plot.get_total_score()
+
+        combo_two = stack((main, side)).tolist()
+        self.plot.set_plots(combo_two)
+        combo_two_score = self.plot.get_total_score()
+
+        if combo_one_score > combo_two_score:
+            return combo_one
+        return combo_two
+
     def estimate_layout(self, plants=None, rows=None, columns=None):
         if plants is None:
             plants = deepcopy(self.plants)
@@ -133,50 +153,32 @@ class Garden(object):
         if columns is None:
             columns = self.width
 
-        if rows * columns < 5:
+        if rows * columns <= 3:
             # Return best combo avaliable.
             layout = self.find_layout(plants, length=rows, width=columns)
-            for row in layout:
-                for plant in row:
-                    plants[plant] -= 1
+            self.mark_plants_as_used(plants, layout)
             return layout
 
         cut = int(rows / 2)
         # Special case, do hstack instead of vstack.
         if rows == columns or (rows % 2 == 1 and columns % 2 == 0):
-            # Cut to the side
-            main = self.estimate_layout(plants, rows=rows, columns=columns-cut)
-            side = self.estimate_layout(plants, rows=rows, columns=cut)
-            # Combo and return which is higher
-            combo_one = hstack((side, main)).tolist()
-            self.plot.set_plots(combo_one)
-            combo_one_score = self.plot.get_total_score()
-            combo_two = hstack((main, side)).tolist()
-            self.plot.set_plots(combo_two)
-            combo_two_score = self.plot.get_total_score()
-            compare = [
-                (combo_one_score, combo_one),
-                (combo_two_score, combo_two)
-            ]
-            compare.sort(reverse=True)
-            return compare[0][1]
+            horizontal = True
+            main_rows = rows
+            main_columns = columns - cut
+            side_rows = rows
+            side_columns = cut
+        else:
+            horizontal = False
+            main_rows = rows - cut
+            main_columns = columns
+            side_rows = cut
+            side_columns = columns
 
-        # Cut to the buttom
-        main = self.estimate_layout(plants, rows=rows-cut, columns=columns)
-        bottom = self.estimate_layout(plants, rows=cut, columns=columns)
-        # Combo and return which is higher
-        combo_one = vstack((bottom, main)).tolist()
-        self.plot.set_plots(combo_one)
-        combo_one_score = self.plot.get_total_score()
-        combo_two = vstack((main, bottom)).tolist()
-        self.plot.set_plots(combo_two)
-        combo_two_score = self.plot.get_total_score()
-        compare = [
-            (combo_one_score, combo_one),
-            (combo_two_score, combo_two)
-        ]
-        compare.sort(reverse=True)
-        return compare[0][1]
+        return self.combine_plots(
+            self.estimate_layout(plants, rows=main_rows, columns=main_columns),
+            self.estimate_layout(plants, rows=side_rows, columns=side_columns),
+            horizontal=horizontal
+        )
 
     def find_layout(self, avaliable_plants=None, length=None, width=None):
         if avaliable_plants is None:

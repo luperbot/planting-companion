@@ -1,3 +1,4 @@
+import time
 import unittest
 
 from plantingcompanion import exceptions, helpers, garden
@@ -119,19 +120,25 @@ class TestLayouts(unittest.TestCase):
         garden_plot = garden.Garden(rows, columns)
         garden_plot.add(plants)
 
+        start = time.time()
         layout = garden_plot.find_layout()
         plot.set_plots(layout)
         score = plot.get_total_score()
+        brute_time = time.time() - start
 
+        start = time.time()
         layout_estimate = garden_plot.estimate_layout()
         plot.set_plots(layout_estimate)
         score_estimate = plot.get_total_score()
+        estimate_time = time.time() - start
 
         print("")
         print("%s x %s" % (rows, columns))
         print(layout)
         print(layout_estimate)
-        print("score: %s vs %s" % (score, score_estimate))
+        print("score: %s (%s secs) vs %s (%s secs)" % (
+            score, brute_time, score_estimate, estimate_time
+        ))
 
         return (layout, layout_estimate)
 
@@ -210,6 +217,12 @@ class TestLayouts(unittest.TestCase):
         plants = [('yarrow', 2), ('apple', 2), ('grass', 2)]
         layout, layout_estimate = self.compare_layout_with_estimate(
             plants, 3, 2
+        )
+
+    def test_three_by_three(self):
+        plants = [('yarrow', 5), ('apple', 2), ('grass', 2)]
+        layout, layout_estimate = self.compare_layout_with_estimate(
+            plants, 3, 3
         )
 
     def test_ten(self):
