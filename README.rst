@@ -19,6 +19,7 @@ Running
 .. code:: bash
 
     $ pip install -r requirements.txt
+    $ npm install
 
 Example
 -------
@@ -33,12 +34,15 @@ Install testing requirements.
 .. code:: bash
 
     $ pip install -r requirements.txt
+    $ npm install
 
-Run with unittest.
+Run with unittest, and linters.
 
 .. code:: bash
 
     $ python -m unittest plantingcompanion.tests
+    $ flake8 plantingcompanion
+    $ npm run lint
 
 .. |build-status-image| image:: https://secure.travis-ci.org/luperbot/planting-companion.svg?branch=master
    :target: http://travis-ci.org/luperbot/planting-companion?branch=master
