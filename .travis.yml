@@ -9,8 +9,10 @@ python:
 # command to install dependencies
 install:
     - pip install -r requirements.txt
+    - npm install
 
 # command to run tests
 script:
     - python -m unittest plantingcompanion.tests
     - flake8 plantingcompanion
+    - npm run lint
