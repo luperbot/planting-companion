@@ -8,7 +8,6 @@ from plantingcompanion import exceptions, helpers, garden, api
 class TestAPI(unittest.TestCase):
 
     def setUp(self):
-        api.app.config['TESTING'] = True
         self.app = api.app.test_client()
 
     def test_plants(self):
