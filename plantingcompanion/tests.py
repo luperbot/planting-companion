@@ -12,13 +12,13 @@ class TestAPI(unittest.TestCase):
 
     def test_plants(self):
         rv = self.app.get('/plants')
-        rv = json.loads(rv.get_data())
+        obj = json.loads(rv.get_data().decode())
 
         plant_values = helpers.get_plant_data()
         plants = list(plant_values.keys())
         plants.sort()
 
-        self.assertEqual(rv, plants)
+        self.assertEqual(obj, plants)
 
     def test_garden(self):
         rv = self.app.post(
@@ -29,10 +29,10 @@ class TestAPI(unittest.TestCase):
                 beans=6
             )
         )
-        rv = json.loads(rv.get_data())
+        obj = json.loads(rv.get_data().decode())
 
-        self.assertIsInstance(rv['score'], int)
-        self.assertIsInstance(rv['plot'], list)
+        self.assertIsInstance(obj['score'], int)
+        self.assertIsInstance(obj['plot'], list)
 
 
 class TestHelpers(unittest.TestCase):
