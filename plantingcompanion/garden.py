@@ -7,6 +7,12 @@ from plantingcompanion import exceptions, helpers
 PLANT_VALUES = helpers.get_plant_data()
 
 
+def score_plot(layout):
+    plot = Plots()
+    plot.set_plots(layout)
+    return plot.get_total_score()
+
+
 class Plots(object):
     """
     Each plot is a matrix of nested arrays.

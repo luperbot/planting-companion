@@ -1,7 +1,39 @@
 import time
 import unittest
+import json
 
-from plantingcompanion import exceptions, helpers, garden
+from plantingcompanion import exceptions, helpers, garden, api
+
+
+class TestAPI(unittest.TestCase):
+
+    def setUp(self):
+        api.app.config['TESTING'] = True
+        self.app = api.app.test_client()
+
+    def test_plants(self):
+        rv = self.app.get('/plants')
+        rv = json.loads(rv.get_data())
+
+        plant_values = helpers.get_plant_data()
+        plants = list(plant_values.keys())
+        plants.sort()
+
+        self.assertEqual(rv, plants)
+
+    def test_garden(self):
+        rv = self.app.post(
+            '/garden',
+            data=dict(
+                length=3,
+                width=2,
+                beans=6
+            )
+        )
+        rv = json.loads(rv.get_data())
+
+        self.assertIsInstance(rv['score'], int)
+        self.assertIsInstance(rv['plot'], list)
 
 
 class TestHelpers(unittest.TestCase):
